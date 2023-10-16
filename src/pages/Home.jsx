@@ -1,12 +1,10 @@
-import { useEffect } from 'react'
+import { useProducts } from '../context/ProductsProvider'
 
 const Home = () => {
-  useEffect(() => {
-    fetch('product.json')
-      .then((res) => res.json())
-      .then((data) => console.log(data))
-  }, [])
+  const { data } = useProducts()
+  console.log('🚀 ~ file: Home.jsx:7 ~ Home ~ data:', data)
 
+  console.log(data)
   return (
     <div>
       <h1>this is home page</h1>
