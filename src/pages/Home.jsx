@@ -1,13 +1,34 @@
+import ProductCard from '../components/ProductCard'
 import { useProducts } from '../context/ProductsProvider'
 
 const Home = () => {
-  const { data } = useProducts()
-  console.log('🚀 ~ file: Home.jsx:7 ~ Home ~ data:', data)
+  const {
+    state: { products, loading, error }
+  } = useProducts()
 
-  console.log(data)
+  let content
+
+  if (loading) {
+    content = <p>Loading...</p>
+  }
+
+  if (error) {
+    content = <p>Something is wrong</p>
+  }
+
+  if (!loading && !error && products.length === 0) {
+    content = <p>Product is not available now</p>
+  }
+
+  if (!loading && !error && products.length) {
+    content = products.map((product, i) => (
+      <ProductCard key={i} product={product} />
+    ))
+  }
+
   return (
-    <div>
-      <h1>this is home page</h1>
+    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 max-w-7xl gap-14 mx-auto my-10'>
+      {content}
     </div>
   )
 }
