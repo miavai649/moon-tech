@@ -3,7 +3,6 @@ import ProductCard from '../components/ProductCard'
 
 const Home = () => {
   const [products, setProducts] = useState()
-  console.log('🚀 ~ file: Home.js:6 ~ Home ~ products:', products)
 
   useEffect(() => {
     fetch('products.json')

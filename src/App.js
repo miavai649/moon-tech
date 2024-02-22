@@ -5,9 +5,9 @@ import ProductsProvider from './context/ProductProvider'
 function App() {
   return (
     <div>
-      {/* <ProductsProvider> */}
-      <RouterProvider router={routes} />
-      {/* </ProductsProvider> */}
+      <ProductsProvider>
+        <RouterProvider router={routes} />
+      </ProductsProvider>
     </div>
   )
 }
