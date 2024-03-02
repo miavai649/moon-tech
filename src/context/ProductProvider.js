@@ -10,7 +10,7 @@ const PRODUCT_CONTEXT = createContext()
 const ProductsProvider = ({ children }) => {
   const [state, dispatch] = useReducer(productReducer, initialState)
 
-  // console.log('🚀 ~ ProductsProvider ~ state:', state)
+  console.log('🚀 ~ ProductsProvider ~ state:', state)
 
   useEffect(() => {
     dispatch({ type: actionTypes.FETCHING_START })

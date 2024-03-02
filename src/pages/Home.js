@@ -6,7 +6,6 @@ const Home = () => {
   const {
     state: { products, loading, error }
   } = useProducts()
-  console.log('🚀 ~ Home ~ state:', products)
 
   let content
 
