@@ -23,7 +23,11 @@ const Home = () => {
 
   if (!loading && !error && products.length) {
     content = products.map((product) => (
-      <ProductCard key={product._id} product={product} />
+      <ProductCard
+        key={product._id}
+        product={product}
+        typeOfCard={'homeCard'}
+      />
     ))
   }
 
