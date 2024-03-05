@@ -38,19 +38,27 @@ const ProductCard = ({ product, typeOfCard }) => {
           </button>
           <button
             title='Add to wishlist'
-            className='bg-indigo-500  py-1 px-2 rounded-full'>
+            className='bg-indigo-500  py-1 px-2 rounded-full'
+            onClick={() =>
+              dispatch({ type: actionTypes.ADD_TO_WISHLIST, payload: product })
+            }>
             <BiListPlus className='text-white' />
           </button>{' '}
         </div>
       ) : (
         <button
           className='bg-indigo-500 flex justify-center py-2 mt-2 rounded-full'
-          onClick={() =>
-            dispatch({
-              type: actionTypes.REMOVE_FROM_CART,
-              payload: product._id
-            })
-          }>
+          onClick={() => {
+            typeOfCard === 'cartCard'
+              ? dispatch({
+                  type: actionTypes.REMOVE_FROM_CART,
+                  payload: product._id
+                })
+              : dispatch({
+                  type: actionTypes.REMOVE_FROM_WISHLIST,
+                  payload: product._id
+                })
+          }}>
           <BiSolidTrash className='text-white text-lg' />
         </button>
       )}
